@@ -8,13 +8,13 @@ Sets up the API gateway with a domain name mapped to it.
 
 ```js
 module "my_api" {
-  source              = "github.com/alanjjenkins/terraform-aws-api-gateway"
+  source              = "github.com/alanjjenkins/terraform-aws-api-gateway?ref=v0.0.1"
   api_name            = "my_api"
   api_description     = "API for something."
-  stage_name          = "${var.envtype}"
+  stage_name          = "var.envtype
   domain_name         = "api.my-domain-here.com"
-  base_path           = "${var.envtype == "prod" ? "" : var.envtype}"
-  acm_certificate_arn = "${data.aws_acm_certificate.my-domain-here-api.arn}"
+  base_path           = var.envtype == "prod" ? "" : var.envtype
+  acm_certificate_arn = data.aws_acm_certificate.my-domain-here-api.arn
 }
 ```
 ## Inputs
